@@ -1,18 +1,26 @@
 {
-  "author": "You <you@example.com>",
-  "name": "rust-webpack-template",
-  "version": "0.1.0",
+  "name": "rust2js",
+  "version": "1.0.0",
+  "description": "A testbed for linking C to Rust (using bindgen) and Rust to JavaScript (via webassembly).",
+  "main": "index.js",
   "scripts": {
-    "build": "rimraf dist pkg && webpack",
-    "start": "rimraf dist pkg && webpack-dev-server --open -d",
-    "test": "cargo test && wasm-pack test --headless"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekakkun/c2rust2js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thekakkun/c2rust2js/issues"
+  },
+  "homepage": "https://github.com/thekakkun/c2rust2js#readme",
   "devDependencies": {
-    "@wasm-tool/wasm-pack-plugin": "^1.1.0",
-    "copy-webpack-plugin": "^5.0.3",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.3",
-    "webpack-dev-server": "^3.7.1",
-    "rimraf": "^3.0.0"
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.0"
   }
 }
