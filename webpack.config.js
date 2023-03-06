@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   mode: "development",
   module: {
     rules: [
@@ -14,7 +14,13 @@ module.exports = {
       },
       {
         test: /\.([cm]?ts|tsx)$/,
+        exclude: "/node_modules",
         loader: "ts-loader",
+        options: {
+          compilerOptions: {
+            noEmit: false,
+          },
+        },
       },
       {
         test: /\.css$/,
@@ -23,7 +29,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".ts", "tsx"],
+    extensions: [".tsx", ".ts", ".jsx", ".js"],
     extensionAlias: {
       ".js": [".js", ".ts"],
       ".cjs": [".cjs", ".cts"],
@@ -36,10 +42,9 @@ module.exports = {
     filename: "bundle.js",
   },
   devServer: {
-    contentBase: path.join(__dirname, "public/"),
+    static: path.join(__dirname, "public"),
     port: 3000,
-    publicPath: "http://localhost:3000/dist/",
-    hotOnly: true,
+    hot: "only",
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };
