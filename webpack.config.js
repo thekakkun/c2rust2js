@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -44,7 +45,15 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, "public"),
     port: 3000,
-    hot: "only",
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new WasmPackPlugin({
+      crateDirectory: path.resolve(__dirname, "libs/rust2js"),
+    }),
+  ],
+  experiments: {
+    asyncWebAssembly: true,
+    syncWebAssembly: true,
+  },
 };
