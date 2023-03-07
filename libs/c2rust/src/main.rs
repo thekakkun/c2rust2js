@@ -1,5 +1,4 @@
 use c2rust::add;
-// use rust_bindgen::bindings;
 use c2rust::hello;
 
 // struct Sys {

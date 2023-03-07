@@ -2,7 +2,6 @@
   "name": "rust2js",
   "version": "1.0.0",
   "description": "A testbed for linking C to Rust (using bindgen) and Rust to JavaScript (via webassembly).",
-  "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development"
   },
